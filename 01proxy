@@ -1,2 +1,1 @@
 Acquire::http::Proxy "http://10.0.1.5:3142";
-PassThroughPattern: ^developer\.nvidia\.com:443$
