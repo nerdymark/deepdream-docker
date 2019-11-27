@@ -37,7 +37,8 @@ RUN apt-get -q update && \
     ipython \
     libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev libboost-all-dev \
     libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler \
-    software-properties-common && \
+    software-properties-common \
+    libhdf5-10 libhdf5-serial-dev libhdf5-dev libhdf5-cpp-11 && \
   add-apt-repository ppa:mc3man/bionic-media -y && \
   apt-get update && \
   apt-get install ffmpeg -y && \
