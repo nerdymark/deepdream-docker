@@ -46,7 +46,6 @@ RUN apt-get -q update && \
   pip install setuptools && \
   pip install jupyter && \
   pip install imageio && \
-  pip install imageio-ffmpeg && \
   pip install moviepy && \
   rm /var/lib/apt/lists/*_*
 
