@@ -27,10 +27,18 @@ RUN apt-get -q update && \
     python-numpy python-scipy python-pil \
     ipython \
     libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev libboost-all-dev \
-    libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler && \
+    libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler \
+    software-properties-common && \
+  add-apt-repository ppa:mc3man/trusty-media -y && \
+  apt-get update && \
+  apt-get install ffmpeg gstreamer0.10-ffmpeg -y && \
   apt-get clean && \
-  pip install --upgrade pip \
-  pip install jupyter \
+  pip install --upgrade pip && \
+  pip install jupyter && \
+  pip install imageio && \
+  pip install imageio-ffmpeg && \
+  pip install moviepy && \
+  
   rm /var/lib/apt/lists/*_*
 
 # Download and compile Caffe
