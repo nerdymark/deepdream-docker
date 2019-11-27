@@ -38,7 +38,7 @@ RUN apt-get -q update && \
     software-properties-common && \
   add-apt-repository ppa:mc3man/bionic-media -y && \
   apt-get update && \
-  apt-get install ffmpeg ffmpeg-shared -y && \
+  apt-get install ffmpeg ffmpeg-shared x264 -y && \
   apt-get clean && \
   pip install --upgrade pip && \
   pip install jupyter && \
