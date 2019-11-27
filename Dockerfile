@@ -54,8 +54,8 @@ RUN apt-get -q update && \
 # Download and compile Caffe
 RUN git clone https://github.com/BVLC/caffe
 RUN cd caffe && \
-  cp Makefile.config.example Makefile.config && echo "CPU_ONLY := 1" >> Makefile.config && \
-  make all -j2 
+  cp Makefile.config.example Makefile.config && echo "CPU_ONLY := 0" >> Makefile.config && \
+  make all -j4 
 RUN pip install -U pip
 RUN pip install cython jupyter
 RUN cd caffe && \
