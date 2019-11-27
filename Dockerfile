@@ -42,6 +42,7 @@ RUN apt-get -q update && \
   apt-get update && \
   apt-get install ffmpeg -y && \
   apt-get clean && \
+  pip install wheel && \
   pip install setuptools && \
   pip install jupyter && \
   pip install imageio && \
