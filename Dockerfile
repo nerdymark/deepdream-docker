@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM ubuntu:trusty
+FROM ubuntu:bionic
 
 RUN mkdir /deepdream
 WORKDIR /deepdream
