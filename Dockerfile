@@ -21,8 +21,8 @@ RUN export DEBIAN_FRONTEND=noninteractive
 
 RUN ln -fs /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 RUN apt-get -q update && \
-  apt-get install -y tzdata
-RUN dpkg-reconfigure --frontend noninteractive tzdata
+  apt-get install -y tzdata && \
+  dpkg-reconfigure --frontend noninteractive tzdata
 
 RUN apt-get -q update && \
   apt-get install --no-install-recommends -y -q \
@@ -36,7 +36,7 @@ RUN apt-get -q update && \
     libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev libboost-all-dev \
     libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler \
     software-properties-common && \
-  add-apt-repository ppa:mc3man/trusty-media -y && \
+  add-apt-repository ppa:mc3man/bionic-media -y && \
   apt-get update && \
   apt-get install ffmpeg gstreamer0.10-ffmpeg -y && \
   apt-get clean && \
@@ -45,7 +45,6 @@ RUN apt-get -q update && \
   pip install imageio && \
   pip install imageio-ffmpeg && \
   pip install moviepy && \
-  
   rm /var/lib/apt/lists/*_*
 
 # Download and compile Caffe
