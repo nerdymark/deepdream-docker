@@ -42,7 +42,6 @@ RUN apt-get -q update && \
   apt-get update && \
   apt-get install ffmpeg -y && \
   apt-get clean && \
-  pip install --upgrade pip && \
   pip install jupyter && \
   pip install imageio && \
   pip install imageio-ffmpeg && \
