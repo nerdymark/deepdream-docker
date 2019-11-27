@@ -14,6 +14,8 @@
 
 FROM ubuntu:bionic
 
+ADD 01proxy /etc/apt/apt.conf.d/01proxy
+
 RUN mkdir /deepdream
 WORKDIR /deepdream
 
