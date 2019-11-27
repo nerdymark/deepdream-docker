@@ -17,6 +17,13 @@ FROM ubuntu:bionic
 RUN mkdir /deepdream
 WORKDIR /deepdream
 
+RUN export DEBIAN_FRONTEND=noninteractive
+
+RUN ln -fs /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+RUN apt-get -q update && \
+  apt-get install -y tzdata
+RUN dpkg-reconfigure --frontend noninteractive tzdata
+
 RUN apt-get -q update && \
   apt-get install --no-install-recommends -y -q \
     build-essential \
