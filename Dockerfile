@@ -14,6 +14,7 @@
 
 FROM ubuntu:bionic
 
+# My local Apt proxy. Uncomment if you're not on my LAN.
 ADD 01proxy /etc/apt/apt.conf.d/01proxy
 
 RUN mkdir /deepdream
