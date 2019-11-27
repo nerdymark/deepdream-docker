@@ -56,6 +56,7 @@ RUN export DEBIAN_FRONTEND=noninteractive
 
 RUN ln -fs /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 RUN apt-get -q update && \
+  apt-get install -y apt-utils && \
   apt-get install -y tzdata && \
   dpkg-reconfigure --frontend noninteractive tzdata
 
@@ -106,8 +107,8 @@ RUN apt-get -q update && \
 RUN git clone https://github.com/google/deepdream
 
 # Uncomment to include DeepDream Video
-# RUN git clone https://github.com/graphific/DeepDreamVideo
-# RUN cd DeepDreamVideo && chmod a+x *.py
+RUN git clone https://github.com/graphific/DeepDreamVideo
+RUN cd DeepDreamVideo && chmod a+x *.py
 
 ENV LD_LIBRARY_PATH=/deepdream/caffe/distribute/lib
 ENV PYTHONPATH=/deepdream/caffe/distribute/python
