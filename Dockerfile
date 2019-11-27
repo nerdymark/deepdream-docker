@@ -18,7 +18,7 @@ RUN mkdir /deepdream
 WORKDIR /deepdream
 
 RUN apt-get -q update && \
-  apt-get install --no-install-recommends -y --force-yes -q \
+  apt-get install --no-install-recommends -y -q \
     build-essential \
     ca-certificates \
     git \
