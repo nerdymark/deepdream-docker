@@ -24,11 +24,13 @@ RUN apt-get -q update && \
     git \
     python python-pip \
     python-dev libpython-dev \
-    python-numpy python-scipy python-imaging \
-    ipython ipython-notebook \
+    python-numpy python-scipy python-pil \
+    ipython \
     libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev libboost-all-dev \
     libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler && \
   apt-get clean && \
+  pip install --upgrade pip \
+  pip install jupyter \
   rm /var/lib/apt/lists/*_*
 
 # Download and compile Caffe
