@@ -30,8 +30,8 @@ ENV CUDA_PKG_VERSION 10-2=$CUDA_VERSION-1
 # For libraries in the cuda-compat-* package: https://docs.nvidia.com/cuda/eula/index.html#attachment-a
 RUN apt-get update && apt-get install -y --no-install-recommends \
         cuda-cudart-$CUDA_PKG_VERSION \
-cuda-compat-10-2 && \
-ln -s cuda-10.2 /usr/local/cuda && \
+        cuda-compat-10-2 && \
+    ln -s cuda-10.2 /usr/local/cuda && \
     rm -rf /var/lib/apt/lists/*
 
 # Required for nvidia-docker v1
