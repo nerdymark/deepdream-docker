@@ -89,6 +89,8 @@ RUN apt-get -q update && \
   pip install moviepy && \
   rm /var/lib/apt/lists/*_*
 
+RUN ldconfig
+
 # Download and compile Caffe
 RUN git clone https://github.com/nerdymark/caffe.git
 RUN cd caffe && \
