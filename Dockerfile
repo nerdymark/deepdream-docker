@@ -75,6 +75,7 @@ RUN apt-get -q update && \
     libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev libboost-all-dev \
     libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler \
     software-properties-common \
+    libboost-dev libboost-all-dev \
     libhdf5-100 libhdf5-serial-dev libhdf5-dev libhdf5-cpp-100 && \
   add-apt-repository ppa:mc3man/bionic-media -y && \
   apt-get update && \
