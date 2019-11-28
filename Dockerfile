@@ -112,36 +112,7 @@ RUN apt-get update \
     protobuf-compiler \
     sqlite3 \
     tk-dev \
-    unixodbc-dev \
-    RColorBrewer \
-    RandomFields \
-    RNetCDF \
-    classInt \
-    deldir \
-    gstat \
-    hdf5r \
-    lidR \
-    lwgeom \
-    mapdata \
-    maptools \
-    mapview \
-    ncdf4 \
-    proj4 \
-    raster \
-    rgdal \
-    rgeos \
-    rlas \
-    sf \
-    sp \
-    spacetime \
-    spatstat \
-    spatialreg \
-    spdep \
-    tmap \
-    geoR \
-    geosphere \
-    ## from bioconductor
-    && R -e "BiocManager::install('rhdf5')"
+    unixodbc-dev 
 
 RUN ldconfig
 
