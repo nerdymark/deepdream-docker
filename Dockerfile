@@ -48,6 +48,8 @@ ENV NVIDIA_REQUIRE_CUDA "cuda>=10.2 brand=tesla,driver>=384,driver<385 brand=tes
 
 RUN ldconfig
 
+RUN ls -lR /usr/local/cuda*
+
 # My local Apt proxy. Uncomment if you're not on my LAN.
 ADD 01proxy /etc/apt/apt.conf.d/01proxy
 
