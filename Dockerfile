@@ -46,8 +46,6 @@ ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 ENV NVIDIA_REQUIRE_CUDA "cuda>=10.2 brand=tesla,driver>=384,driver<385 brand=tesla,driver>=396,driver<397 brand=tesla,driver>=410,driver<411"
 
-RUN which nvcc
-
 RUN ls -lR /usr/local
 
 # My local Apt proxy. Uncomment if you're not on my LAN.
