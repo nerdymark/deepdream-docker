@@ -90,7 +90,7 @@ RUN apt-get -q update && \
   rm /var/lib/apt/lists/*_*
 
 # Download and compile Caffe
-RUN git clone https://github.com/BVLC/caffe
+RUN git clone https://github.com/nerdymark/caffe.git
 RUN cd caffe && \
   cp Makefile.config.example Makefile.config && echo "CPU_ONLY := 0" >> Makefile.config && \
   make all -j4 
