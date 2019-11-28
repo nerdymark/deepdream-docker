@@ -17,18 +17,18 @@ FROM ubuntu:bionic
 # My local Apt proxy. Uncomment if you're not on my LAN.
 ADD 01proxy /etc/apt/apt.conf.d/01proxy
 
-RUN apt-get update && apt-get dist-upgrade -y 
+# RUN apt-get update && apt-get dist-upgrade -y 
 
-RUN apt-get clean
+# RUN apt-get clean
 
 # Cuda stuff
 RUN apt-get update && apt-get install -y --no-install-recommends \
 gnupg2 curl ca-certificates && \
     curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub | apt-key add - && \
     echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda.list && \
-    echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/nvidia-ml.list && \
-    apt-get purge --autoremove -y curl && \
-    rm -rf /var/lib/apt/lists/*
+    echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/nvidia-ml.list
+    # apt-get purge --autoremove -y curl && \
+    # rm -rf /var/lib/apt/lists/*
 
 ENV CUDA_VERSION 10.2.89
 
