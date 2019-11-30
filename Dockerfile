@@ -92,7 +92,6 @@ RUN apt-get -q update && \
   pip install moviepy && \
   pip install tables && \
   pip install h5py && \
-
   rm /var/lib/apt/lists/*_*
 
 RUN apt-get update \
