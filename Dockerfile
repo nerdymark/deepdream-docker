@@ -31,9 +31,6 @@ ENV CUDA_VERSION 10.2.89
 
 ENV CUDA_PKG_VERSION 10-2=$CUDA_VERSION-1
 
-# My local Apt proxy. Uncomment if you're not on my LAN.
-ADD 01proxy /etc/apt/apt.conf.d/01proxy
-
 # For libraries in the cuda-compat-* package: https://docs.nvidia.com/cuda/eula/index.html#attachment-a
 RUN apt-get update && apt-get install -y --no-install-recommends \
         cuda \
@@ -56,8 +53,9 @@ ENV NVIDIA_REQUIRE_CUDA "cuda>=10.2 brand=tesla,driver>=384,driver<385 brand=tes
 ENV CUDA_ARCH_BIN "35 52 60 61 70"
 ENV CUDA_ARCH_PTX "70"
 
-RUN mkdir /deepdream
-WORKDIR /deepdream
+
+# My local Apt proxy. Uncomment if you're not on my LAN.
+ADD 01proxy /etc/apt/apt.conf.d/01proxy
 
 RUN export DEBIAN_FRONTEND=noninteractive
 
@@ -122,6 +120,9 @@ RUN apt-get update \
     unixodbc-dev 
 
 RUN ldconfig
+
+RUN mkdir /deepdream
+WORKDIR /deepdream
 
 # Download and compile Caffe
 RUN git clone https://github.com/nerdymark/caffe.git
