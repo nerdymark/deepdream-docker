@@ -13,4 +13,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ipython notebook --ip='*' --no-browser /deepdream/deepdream
+jupyter notebook --ip='*' --no-browser /deepdream/deepdream
