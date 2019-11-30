@@ -156,7 +156,4 @@ EXPOSE 8888
 
 ADD start.sh start.sh
 
-RUN pwd
-RUN ls
-
 CMD ["./start.sh"]
