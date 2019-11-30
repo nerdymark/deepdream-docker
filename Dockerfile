@@ -14,9 +14,6 @@
 
 FROM ubuntu:bionic
 
-# My local Apt proxy. Uncomment if you're not on my LAN.
-ADD 01proxy /etc/apt/apt.conf.d/01proxy
-
 # RUN apt-get update && apt-get dist-upgrade -y 
 
 # RUN apt-get clean
@@ -33,6 +30,9 @@ gnupg2 curl ca-certificates && \
 ENV CUDA_VERSION 10.2.89
 
 ENV CUDA_PKG_VERSION 10-2=$CUDA_VERSION-1
+
+# My local Apt proxy. Uncomment if you're not on my LAN.
+ADD 01proxy /etc/apt/apt.conf.d/01proxy
 
 # For libraries in the cuda-compat-* package: https://docs.nvidia.com/cuda/eula/index.html#attachment-a
 RUN apt-get update && apt-get install -y --no-install-recommends \
