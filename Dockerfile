@@ -156,6 +156,8 @@ EXPOSE 8888
 
 ADD start.sh start.sh
 
+ADD GifMaker.ipynb GifMaker.ipynb
+
 RUN mkdir ~/.jupyter
 
 RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> ~/.jupyter/jupyter_notebook_config.py
