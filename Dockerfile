@@ -17,6 +17,9 @@ FROM ubuntu:bionic
 # My local Apt proxy. Uncomment if you're not on my LAN.
 ADD 01proxy /etc/apt/apt.conf.d/01proxy
 
+# Keyboard configuration
+ADD keyboard /etc/default/keyboard
+
 # RUN apt-get update && apt-get dist-upgrade -y 
 
 # RUN apt-get clean
