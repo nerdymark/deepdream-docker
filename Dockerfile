@@ -14,7 +14,7 @@
 
 FROM ubuntu:bionic
 
-RUN export DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 # My local Apt proxy. Uncomment if you're not on my LAN.
 ADD 01proxy /etc/apt/apt.conf.d/01proxy
@@ -29,7 +29,7 @@ ADD keyboard /etc/default/keyboard
 
 # Cuda stuff
 RUN apt-get update && apt-get install -y --no-install-recommends \
-gnupg2 curl ca-certificates && \
+    gnupg2 curl ca-certificates && \
     curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub | apt-key add - && \
     echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda.list && \
     echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/nvidia-ml.list
@@ -41,7 +41,7 @@ ENV CUDA_VERSION 10.2.89
 ENV CUDA_PKG_VERSION 10-2=$CUDA_VERSION-1
 
 # For libraries in the cuda-compat-* package: https://docs.nvidia.com/cuda/eula/index.html#attachment-a
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         cuda \
         cuda-cudart-$CUDA_PKG_VERSION \
         cuda-compat-10-2 && \
