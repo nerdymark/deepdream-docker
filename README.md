@@ -11,7 +11,7 @@ Running the Container
 ---------------------
 To run this container:
 
-    $ docker run -ti -p 8888:8888 saturnism/deepdream
+    $ docker run -ti -p 8888:8888 nerdymark/deepdream-nerdymark
 
 Then you can open the ipython notebook:
 
