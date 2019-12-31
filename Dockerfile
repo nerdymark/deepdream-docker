@@ -62,43 +62,32 @@ ENV CUDA_ARCH_PTX "70"
 
 RUN ln -fs /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 
-RUN apt-get -q update && \
-  apt-get install -y apt-utils && \
-  apt-get install -y tzdata && \
-  dpkg-reconfigure --frontend noninteractive tzdata
+RUN apt-get -q update
 
-RUN apt install -y python python3 python-pip python3-pip \
-    python-dev libpython-dev \
-    python3-dev libpython3-dev \
-    python-numpy python-scipy python-pil \
-    python3-numpy python3-scipy python3-pil 
+RUN apt-get install -y apt-utils tzdata
+
+RUN dpkg-reconfigure --frontend noninteractive tzdata
+
+RUN apt install -y python python3 python-pip python3-pip python-dev libpython-dev python3-dev libpython3-dev \
+    python-numpy python-scipy python-pil python3-numpy python3-scipy python3-pil libcurl4-openssl-dev libssl-dev \
+    python-cairo libcairo2-dev libgirepository1.0-dev python3-pycurl git-core wget build-essential \
+    ca-certificates git ipython ipython3 libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev \
+    libhdf5-serial-dev libboost-all-dev libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev \
+    protobuf-compiler software-properties-common libboost-dev libboost-all-dev libhdf5-100 libhdf5-serial-dev \
+    libhdf5-dev libhdf5-cpp-100 lbzip2 libfftw3-dev libgdal-dev libgeos-dev libgsl0-dev libgl1-mesa-dev \
+    libglu1-mesa-dev libhdf4-alt-dev libhdf5-dev libjq-dev liblwgeom-dev libpq-dev libproj-dev libprotobuf-dev \
+    libnetcdf-dev libsqlite3-dev libssl-dev libudunits2-dev netcdf-bin postgis protobuf-compiler sqlite3 \
+    tk-dev unixodbc-dev python-jsonschema
 
 RUN pip install python-dateutil --upgrade
+
 RUN pip3 install python-dateutil --upgrade
-
-RUN apt install -y libcurl4-openssl-dev libssl-dev
-
-RUN apt install -y python-cairo libcairo2-dev libgirepository1.0-dev python3-pycurl
 
 RUN pip3 install --upgrade tensorflow-gpu tensorboard
 
 RUN pip3 install gpt-2-simple
 
-RUN apt install -y git-core wget
-
-RUN apt-get -q update && \
-  apt-get install --no-install-recommends -y -q \
-    build-essential \
-    ca-certificates \
-    git \
-    ipython \
-    ipython3 \
-    libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev libboost-all-dev \
-    libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler \
-    software-properties-common \
-    libboost-dev libboost-all-dev \
-    libhdf5-100 libhdf5-serial-dev libhdf5-dev libhdf5-cpp-100 && \
-  add-apt-repository ppa:mc3man/bionic-media -y && \
+RUN add-apt-repository ppa:mc3man/bionic-media -y && \
   apt-get update && \
   apt-get install ffmpeg -y && \
   apt-get clean && \
@@ -115,33 +104,6 @@ RUN apt-get -q update && \
   pip3 install tqdm && \
   pip3 install pyyaml && \
   rm /var/lib/apt/lists/*_*
-
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
-    lbzip2 \
-    libfftw3-dev \
-    libgdal-dev \
-    libgeos-dev \
-    libgsl0-dev \
-    libgl1-mesa-dev \
-    libglu1-mesa-dev \
-    libhdf4-alt-dev \
-    libhdf5-dev \
-    libjq-dev \
-    liblwgeom-dev \
-    libpq-dev \
-    libproj-dev \
-    libprotobuf-dev \
-    libnetcdf-dev \
-    libsqlite3-dev \
-    libssl-dev \
-    libudunits2-dev \
-    netcdf-bin \
-    postgis \
-    protobuf-compiler \
-    sqlite3 \
-    tk-dev \
-    unixodbc-dev 
 
 RUN ldconfig
 
@@ -163,11 +125,7 @@ RUN pip install pyyaml
 RUN cd caffe/scripts && ./download_model_binary.py ../models/bvlc_googlenet/
 
 RUN pip3 install protobuf && pip3 install tornado --upgrade
-RUN apt-get -q update && \
-  apt-get install --no-install-recommends -y --force-yes -q \
-    python-jsonschema && \
-  apt-get clean && \
-  rm /var/lib/apt/lists/*_*
+RUN rm /var/lib/apt/lists/*_*
 
 RUN git clone https://github.com/google/deepdream
 
@@ -205,11 +163,10 @@ RUN python3 download_model.py 124M
 
 RUN pip3 install jupyter
 
-RUN ipython kernelspec install-self
+#RUN ipython kernelspec install-self
 RUN ipython3 kernelspec install-self
 
 #RUN apt-get clean
-
 
 WORKDIR /deepdream
 CMD ["./start.sh"]
