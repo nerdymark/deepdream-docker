@@ -163,6 +163,7 @@ ENV PYTHONPATH=/deepdream/caffe/distribute/python
 
 EXPOSE 8888
 
+WORKDIR /deepdream
 ADD start.sh start.sh
 
 ADD GifMaker.ipynb /deepdream/deepdream/GifMaker.ipynb
