@@ -68,7 +68,7 @@ RUN apt-get install -y apt-utils tzdata
 
 RUN dpkg-reconfigure --frontend noninteractive tzdata
 
-RUN apt install -y python python3 python-pip python3-pip python-dev libpython-dev python3-dev libpython3-dev \
+RUN apt-get install -y python python3 python-pip python3-pip python-dev libpython-dev python3-dev libpython3-dev \
     python-numpy python-scipy python-pil python3-numpy python3-scipy python3-pil libcurl4-openssl-dev libssl-dev \
     python-cairo libcairo2-dev libgirepository1.0-dev python3-pycurl git-core wget build-essential \
     ca-certificates git ipython ipython3 libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev \
@@ -102,8 +102,7 @@ RUN add-apt-repository ppa:mc3man/bionic-media -y && \
   pip3 install regex && \
   pip3 install requests && \
   pip3 install tqdm && \
-  pip3 install pyyaml && \
-  rm /var/lib/apt/lists/*_*
+  pip3 install pyyaml
 
 RUN ldconfig
 
