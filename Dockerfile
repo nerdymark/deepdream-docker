@@ -68,6 +68,12 @@ RUN apt-get -q update && \
   apt-get install -y tzdata && \
   dpkg-reconfigure --frontend noninteractive tzdata
 
+RUN apt install python python3 python-pip python3-pip \
+    python-dev libpython-dev \
+    python3-dev libpython3-dev \
+    python-numpy python-scipy python-pil \
+    python3-numpy python3-scipy python3-pil 
+
 RUN pip3 install jupyter
 
 RUN apt-get -q update && \
@@ -75,9 +81,6 @@ RUN apt-get -q update && \
     build-essential \
     ca-certificates \
     git \
-    python python-pip python3-pip \
-    python-dev libpython-dev \
-    python-numpy python-scipy python-pil \
     ipython \
     ipython3 \
     libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev libboost-all-dev \
