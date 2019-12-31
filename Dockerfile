@@ -61,10 +61,21 @@ ENV CUDA_ARCH_BIN "35 52 60 61 70"
 ENV CUDA_ARCH_PTX "70"
 
 RUN ln -fs /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+
 RUN apt-get -q update && \
   apt-get install -y apt-utils && \
   apt-get install -y tzdata && \
   dpkg-reconfigure --frontend noninteractive tzdata
+
+RUN apt install -y python python3 python-pip python3-pip \
+    python-dev libpython-dev \
+    python3-dev libpython3-dev \
+    python-numpy python-scipy python-pil \
+    python3-numpy python3-scipy python3-pil 
+
+RUN pip install python-dateutil --upgrade
+RUN pip3 install python-dateutil --upgrade
+
 
 RUN apt-get -q update && \
   apt-get install --no-install-recommends -y -q \
@@ -182,15 +193,6 @@ RUN python3 download_model.py 124M
 #RUN python download_model.py 355M
 #RUN python download_model.py 774M
 #RUN python download_model.py 1558M
-
-RUN apt install -y python python3 python-pip python3-pip \
-    python-dev libpython-dev \
-    python3-dev libpython3-dev \
-    python-numpy python-scipy python-pil \
-    python3-numpy python3-scipy python3-pil 
-
-RUN pip install python-dateutil --upgrade
-RUN pip3 install python-dateutil --upgrade
 
 RUN pip3 install jupyter
 
