@@ -140,14 +140,6 @@ RUN cd caffe && \
   make all -j4 
 RUN pip install -U pip
 
-RUN pip3 install cython
-
-RUN python2 -m pip install ipykernel
-RUN python2 -m ipykernel install --user
-
-RUN python3 -m pip install ipykernel
-RUN python3 -m ipykernel install --user
-
 RUN ipython3 kernelspec install-self
 
 RUN cd caffe && \
