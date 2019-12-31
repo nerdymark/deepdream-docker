@@ -173,7 +173,6 @@ RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> ~/.jupyter/jupyter_notebook_config.py
 RUN mkdir /deepdream/gpt-2
 WORKDIR /deepdream/gpt-2
 ADD . /deepdream/gpt-2
-RUN pip3 install -r requirements.txt
 RUN python3 download_model.py 124M
 RUN python3 download_model.py 355M
 RUN python3 download_model.py 774M
