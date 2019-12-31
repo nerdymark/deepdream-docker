@@ -154,6 +154,7 @@ RUN cd caffe && \
   pip3 install --requirement python/requirements.txt 
 RUN cd caffe && make pycaffe -j2
 RUN cd caffe && make distribute
+RUN pip install pyyaml
 RUN cd caffe/scripts && ./download_model_binary.py ../models/bvlc_googlenet/
 
 RUN pip3 install protobuf && pip3 install tornado --upgrade
