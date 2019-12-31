@@ -160,7 +160,8 @@ RUN python3 download_model.py 124M
 #RUN python download_model.py 774M
 #RUN python download_model.py 1558M
 
-RUN pip3 install jupyter
+RUN pip3 install jupyter --upgrade
+RUN pip3 install jupyter-console --upgrade
 
 #RUN ipython kernelspec install-self
 RUN ipython3 kernelspec install-self
