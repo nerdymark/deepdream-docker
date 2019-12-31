@@ -154,6 +154,7 @@ RUN apt-get -q update && \
 RUN git clone https://github.com/google/deepdream
 
 # Uncomment to include DeepDream Video
+WORKDIR /deepdream/deepdream
 RUN git clone https://github.com/graphific/DeepDreamVideo
 RUN cd DeepDreamVideo && chmod a+x *.py
 
@@ -164,19 +165,21 @@ EXPOSE 8888
 
 ADD start.sh start.sh
 
-ADD GifMaker.ipynb GifMaker.ipynb
+ADD GifMaker.ipynb /deepdream/deepdream/GifMaker.ipynb
 
 RUN mkdir ~/.jupyter
 
 RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> ~/.jupyter/jupyter_notebook_config.py
 
-RUN mkdir /deepdream/gpt-2
-WORKDIR /deepdream/gpt-2
-ADD . /deepdream/gpt-2
+RUN mkdir /deepdream/deepdream/gpt-2
+WORKDIR /deepdream/deepdream/gpt-2
+ADD src /deepdream/gpt-2
+ADD download_model.py /deepdream/gpt-2
+
 RUN python3 download_model.py 124M
-RUN python3 download_model.py 355M
-RUN python3 download_model.py 774M
-RUN python3 download_model.py 1558M
+#RUN python3 download_model.py 355M
+#RUN python3 download_model.py 774M
+#RUN python3 download_model.py 1558M
 
 WORKDIR /deepdream
 CMD ["./start.sh"]
