@@ -68,6 +68,8 @@ RUN apt-get -q update && \
   apt-get install -y tzdata && \
   dpkg-reconfigure --frontend noninteractive tzdata
 
+RUN pip3 install jupyter
+
 RUN apt-get -q update && \
   apt-get install --no-install-recommends -y -q \
     build-essential \
@@ -76,6 +78,7 @@ RUN apt-get -q update && \
     python python-pip python3-pip \
     python-dev libpython-dev \
     python-numpy python-scipy python-pil \
+    ipython \
     ipython3 \
     libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev libboost-all-dev \
     libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler \
@@ -89,7 +92,6 @@ RUN apt-get -q update && \
   pip3 install wheel && \
   pip3 install setuptools && \
   pip install setuptools && \
-  pip3 install jupyter && \
   pip3 install imageio && \
   pip3 install moviepy && \
   pip3 install tables && \
@@ -140,6 +142,8 @@ RUN cd caffe && \
   make all -j4 
 RUN pip install -U pip
 
+
+RUN ipython kernelspec install-self
 RUN ipython3 kernelspec install-self
 
 RUN cd caffe && \
