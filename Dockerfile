@@ -23,9 +23,7 @@ ADD 01proxy /etc/apt/apt.conf.d/01proxy
 ENV TERM xterm
 ADD keyboard /etc/default/keyboard
 
-# RUN apt-get update && apt-get dist-upgrade -y 
-
-# RUN apt-get clean
+RUN apt-get update && apt-get dist-upgrade -y 
 
 # Cuda stuff
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -67,17 +65,6 @@ RUN apt-get -q update && \
   apt-get install -y apt-utils && \
   apt-get install -y tzdata && \
   dpkg-reconfigure --frontend noninteractive tzdata
-
-RUN apt install -y python python3 python-pip python3-pip \
-    python-dev libpython-dev \
-    python3-dev libpython3-dev \
-    python-numpy python-scipy python-pil \
-    python3-numpy python3-scipy python3-pil 
-
-RUN pip3 install jupyter
-
-RUN pip install python-dateutil --upgrade
-RUN pip3 install python-dateutil --upgrade
 
 RUN apt-get -q update && \
   apt-get install --no-install-recommends -y -q \
@@ -148,10 +135,6 @@ RUN cd caffe && \
   make all -j4 
 RUN pip install -U pip
 
-
-RUN ipython kernelspec install-self
-RUN ipython3 kernelspec install-self
-
 RUN cd caffe && \
   pip3 install --requirement python/requirements.txt 
 RUN cd caffe && make pycaffe -j2
@@ -199,6 +182,23 @@ RUN python3 download_model.py 124M
 #RUN python download_model.py 355M
 #RUN python download_model.py 774M
 #RUN python download_model.py 1558M
+
+RUN apt install -y python python3 python-pip python3-pip \
+    python-dev libpython-dev \
+    python3-dev libpython3-dev \
+    python-numpy python-scipy python-pil \
+    python3-numpy python3-scipy python3-pil 
+
+RUN pip install python-dateutil --upgrade
+RUN pip3 install python-dateutil --upgrade
+
+RUN pip3 install jupyter
+
+RUN ipython kernelspec install-self
+RUN ipython3 kernelspec install-self
+
+#RUN apt-get clean
+
 
 WORKDIR /deepdream
 CMD ["./start.sh"]
