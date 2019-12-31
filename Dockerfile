@@ -68,7 +68,7 @@ RUN apt-get -q update && \
   apt-get install -y tzdata && \
   dpkg-reconfigure --frontend noninteractive tzdata
 
-RUN apt install python python3 python-pip python3-pip \
+RUN apt install -y python python3 python-pip python3-pip \
     python-dev libpython-dev \
     python3-dev libpython3-dev \
     python-numpy python-scipy python-pil \
