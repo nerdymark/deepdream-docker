@@ -88,6 +88,7 @@ RUN apt-get -q update && \
   apt-get clean && \
   pip3 install wheel && \
   pip3 install setuptools && \
+  pip install setuptools && \
   pip3 install jupyter && \
   pip3 install imageio && \
   pip3 install moviepy && \
