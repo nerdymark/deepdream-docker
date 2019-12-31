@@ -97,7 +97,7 @@ RUN apt-get -q update && \
   pip3 install regex && \
   pip3 install requests && \
   pip3 install tqdm && \
-  pip3 install yaml && \
+  pip3 install pyyaml && \
   rm /var/lib/apt/lists/*_*
 
 RUN apt-get update \
