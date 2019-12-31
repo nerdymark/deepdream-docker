@@ -176,6 +176,9 @@ RUN mkdir /deepdream/deepdream/gpt-2
 WORKDIR /deepdream/deepdream/gpt-2
 ADD src /deepdream/deepdream/gpt-2
 ADD download_model.py /deepdream/deepdream/gpt-2
+ADD domains.txt /deepdream/deepdream/gpt-2
+ADD model_card.md /deepdream/deepdream/gpt-2
+
 
 RUN python download_model.py 124M
 #RUN python download_model.py 355M
