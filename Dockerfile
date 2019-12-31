@@ -76,7 +76,7 @@ RUN apt-get -q update && \
     python python-pip python3-pip \
     python-dev libpython-dev \
     python-numpy python-scipy python-pil \
-    ipython \
+    ipython3 \
     libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev libboost-all-dev \
     libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler \
     software-properties-common \
@@ -89,7 +89,7 @@ RUN apt-get -q update && \
   pip3 install wheel && \
   pip3 install setuptools && \
   pip install setuptools && \
-  pip install jupyter && \
+  pip3 install jupyter && \
   pip3 install imageio && \
   pip3 install moviepy && \
   pip3 install tables && \
