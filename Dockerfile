@@ -76,6 +76,15 @@ RUN apt install -y python python3 python-pip python3-pip \
 RUN pip install python-dateutil --upgrade
 RUN pip3 install python-dateutil --upgrade
 
+RUN apt install -y libcurl4-openssl-dev libssl-dev
+
+RUN apt install -y python-cairo libcairo2-dev libgirepository1.0-dev python3-pycurl
+
+RUN pip3 install --upgrade tensorflow-gpu tensorboard
+
+RUN pip3 install gpt-2-simple
+
+RUN apt install -y git-core wget
 
 RUN apt-get -q update && \
   apt-get install --no-install-recommends -y -q \
