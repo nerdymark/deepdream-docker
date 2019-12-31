@@ -73,7 +73,7 @@ RUN apt-get -q update && \
     build-essential \
     ca-certificates \
     git \
-    python python-pip \
+    python python-pip python3-pip \
     python-dev libpython-dev \
     python-numpy python-scipy python-pil \
     ipython \
@@ -86,17 +86,17 @@ RUN apt-get -q update && \
   apt-get update && \
   apt-get install ffmpeg -y && \
   apt-get clean && \
-  pip install wheel && \
-  pip install setuptools && \
-  pip install jupyter && \
-  pip install imageio && \
-  pip install moviepy && \
-  pip install tables && \
-  pip install h5py && \
-  pip install fire && \
-  pip install regex && \
-  pip install requests && \
-  pip install tqdm && \
+  pip3 install wheel && \
+  pip3 install setuptools && \
+  pip3 install jupyter && \
+  pip3 install imageio && \
+  pip3 install moviepy && \
+  pip3 install tables && \
+  pip3 install h5py && \
+  pip3 install fire && \
+  pip3 install regex && \
+  pip3 install requests && \
+  pip3 install tqdm && \
   rm /var/lib/apt/lists/*_*
 
 RUN apt-get update \
@@ -137,14 +137,14 @@ RUN cd caffe && \
   cp Makefile.config.example Makefile.config && echo "CPU_ONLY := 0" >> Makefile.config && \
   make all -j4 
 RUN pip install -U pip
-RUN pip install cython jupyter
+RUN pip3 install cython jupyter
 RUN cd caffe && \
-  pip install --requirement python/requirements.txt 
+  pip3 install --requirement python/requirements.txt 
 RUN cd caffe && make pycaffe -j2
 RUN cd caffe && make distribute
 RUN cd caffe/scripts && ./download_model_binary.py ../models/bvlc_googlenet/
 
-RUN pip install protobuf && pip install tornado --upgrade
+RUN pip3 install protobuf && pip3 install tornado --upgrade
 RUN apt-get -q update && \
   apt-get install --no-install-recommends -y --force-yes -q \
     python-jsonschema && \
@@ -180,7 +180,7 @@ ADD domains.txt /deepdream/deepdream/gpt-2
 ADD model_card.md /deepdream/deepdream/gpt-2
 
 
-RUN python download_model.py 124M
+RUN python3 download_model.py 124M
 #RUN python download_model.py 355M
 #RUN python download_model.py 774M
 #RUN python download_model.py 1558M
