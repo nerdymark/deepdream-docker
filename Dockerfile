@@ -77,7 +77,6 @@ RUN apt install -y python python3 python-pip python3-pip \
 RUN pip3 install jupyter
 
 RUN pip install python-dateutil --upgrade
-RUN pip install python3-dateutil --upgrade
 
 RUN apt-get -q update && \
   apt-get install --no-install-recommends -y -q \
