@@ -125,7 +125,7 @@ RUN apt-get install -y caffe-cuda
 
 
 RUN pip install pyyaml
-RUN cd caffe/scripts && ./download_model_binary.py ../models/bvlc_googlenet/
+#RUN cd caffe/scripts && ./download_model_binary.py ../models/bvlc_googlenet/
 
 RUN pip3 install protobuf && pip3 install tornado --upgrade
 RUN rm /var/lib/apt/lists/*_*
