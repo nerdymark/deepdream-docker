@@ -121,8 +121,7 @@ RUN pip install -U pip
 #RUN cd caffe && make pycaffe -j2
 #RUN cd caffe && make distribute
 
-RUN apt-get install -y caffe-cuda
-
+RUN apt-get install -y caffe-cuda  python3-caffe-cuda caffe-tools-cuda
 
 RUN pip install pyyaml
 #RUN cd caffe/scripts && ./download_model_binary.py ../models/bvlc_googlenet/
