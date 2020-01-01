@@ -171,8 +171,10 @@ RUN ipython3 kernelspec install-self
 
 #RUN apt-get clean
 
-WORKDIR /deepdream
+WORKDIR /deepdream/deepdream
 
 RUN git clone https://github.com/kylemcdonald/gpt-2-poetry.git
+
+WORKDIR /deepdream
 
 CMD ["./start.sh"]
