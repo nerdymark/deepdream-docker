@@ -137,8 +137,8 @@ WORKDIR /deepdream/deepdream
 RUN git clone https://github.com/graphific/DeepDreamVideo
 RUN cd DeepDreamVideo && chmod a+x *.py
 
-ENV LD_LIBRARY_PATH=/deepdream/caffe/distribute/lib
-ENV PYTHONPATH=/deepdream/caffe/distribute/python
+#ENV LD_LIBRARY_PATH=/deepdream/caffe/distribute/lib
+#ENV PYTHONPATH=/deepdream/caffe/distribute/python
 
 EXPOSE 8888
 
