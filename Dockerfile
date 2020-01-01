@@ -179,4 +179,7 @@ RUN git clone https://github.com/kylemcdonald/python-utils.git
 
 WORKDIR /deepdream
 
+ADD download-urls.py /deepdream/deepdream/gpt-2-poetry
+ADD Untitled.ipynb /deepdream/deepdream
+
 CMD ["./start.sh"]
