@@ -152,7 +152,7 @@ RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> ~/.jupyter/jupyter_notebook_config.py
 
 RUN mkdir /deepdream/deepdream/gpt-2
 WORKDIR /deepdream/deepdream/gpt-2
-ADD src /deepdream/deepdream/gpt-2
+ADD src /deepdream/deepdream/gpt-2/src
 ADD download_model.py /deepdream/deepdream/gpt-2
 ADD domains.txt /deepdream/deepdream/gpt-2
 ADD model_card.md /deepdream/deepdream/gpt-2
@@ -174,6 +174,8 @@ RUN ipython3 kernelspec install-self
 WORKDIR /deepdream/deepdream
 
 RUN git clone https://github.com/kylemcdonald/gpt-2-poetry.git
+
+RUN git clone https://github.com/kylemcdonald/python-utils.git
 
 WORKDIR /deepdream
 
