@@ -110,16 +110,20 @@ RUN mkdir /deepdream
 WORKDIR /deepdream
 
 # Download and compile Caffe
-RUN git clone https://github.com/nerdymark/caffe.git
-RUN cd caffe && \
-  cp Makefile.config.example Makefile.config && echo "CPU_ONLY := 0" >> Makefile.config && \
-  make all -j4 
+#RUN git clone https://github.com/nerdymark/caffe.git
+#RUN cd caffe && \
+#  cp Makefile.config.example Makefile.config && echo "CPU_ONLY := 0" >> Makefile.config && \
+#  make all -j4 
 RUN pip install -U pip
 
-RUN cd caffe && \
-  pip3 install --requirement python/requirements.txt 
-RUN cd caffe && make pycaffe -j2
-RUN cd caffe && make distribute
+#RUN cd caffe && \
+#  pip3 install --requirement python/requirements.txt 
+#RUN cd caffe && make pycaffe -j2
+#RUN cd caffe && make distribute
+
+RUN apt-get install -y caffe-cuda
+
+
 RUN pip install pyyaml
 RUN cd caffe/scripts && ./download_model_binary.py ../models/bvlc_googlenet/
 
