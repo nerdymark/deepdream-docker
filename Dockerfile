@@ -181,5 +181,7 @@ WORKDIR /deepdream
 
 ADD download-urls.py /deepdream/deepdream/gpt-2-poetry
 ADD Untitled.ipynb /deepdream/deepdream
+ADD realdonaldtrump.json /deepdream/deepdream/gpt-2/src
+ADD Presidential.ipynb /deepdream/deepdream/gpt-2/src
 
 CMD ["./start.sh"]
