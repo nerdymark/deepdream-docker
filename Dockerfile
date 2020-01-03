@@ -159,9 +159,9 @@ ADD model_card.md /deepdream/deepdream/gpt-2
 
 
 RUN python3 download_model.py 124M
-RUN python download_model.py 355M
-RUN python download_model.py 774M
-RUN python download_model.py 1558M
+RUN python3 download_model.py 355M
+RUN python3 download_model.py 774M
+RUN python3 download_model.py 1558M
 
 RUN pip3 install jupyter --upgrade
 RUN pip3 install jupyter-console --upgrade
