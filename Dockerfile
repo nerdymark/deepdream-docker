@@ -23,7 +23,10 @@ ADD 01proxy /etc/apt/apt.conf.d/01proxy
 ENV TERM xterm
 ADD keyboard /etc/default/keyboard
 
-RUN apt-get -y install locales
+RUN add-apt-repository universe -y
+RUN add-apt-repository multiverse -y
+RUN apt-get update
+RUN apt-get -y install locales-all
 RUN touch /usr/share/locale/locale.alias
 
 # Set the locale
