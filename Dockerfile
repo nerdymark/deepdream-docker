@@ -23,9 +23,11 @@ ADD 01proxy /etc/apt/apt.conf.d/01proxy
 ENV TERM xterm
 ADD keyboard /etc/default/keyboard
 
+RUN apt-get update
+RUN apt-get -y install software-properties-common
 RUN add-apt-repository universe -y
 RUN add-apt-repository multiverse -y
-RUN apt-get update
+
 RUN apt-get -y install locales-all
 RUN touch /usr/share/locale/locale.alias
 
@@ -36,6 +38,7 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en  
 ENV LC_ALL en_US.UTF-8    
 
+ENV PYTHONIOENCODING=utf8
 RUN apt-get update && apt-get dist-upgrade -y 
 
 # Cuda stuff
