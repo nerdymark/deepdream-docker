@@ -76,6 +76,12 @@ ENV NVIDIA_REQUIRE_CUDA "cuda>=10.2 brand=tesla,driver>=384,driver<385 brand=tes
 ENV CUDA_ARCH_BIN "35 52 60 61 70"
 ENV CUDA_ARCH_PTX "70"
 
+ENV CUDNN_VERSION 7.6.5.32
+LABEL com.nvidia.cudnn.version="${CUDNN_VERSION}"
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libcudnn7=$CUDNN_VERSION-1+cuda10.2 
+
 RUN ln -fs /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 
 RUN apt-get -q update
@@ -174,10 +180,10 @@ ADD domains.txt /deepdream/deepdream/gpt-2
 ADD model_card.md /deepdream/deepdream/gpt-2
 
 
-RUN python3 download_model.py 124M
+#RUN python3 download_model.py 124M
 RUN python3 download_model.py 355M
-RUN python3 download_model.py 774M
-RUN python3 download_model.py 1558M
+#RUN python3 download_model.py 774M
+#RUN python3 download_model.py 1558M
 
 RUN pip3 install jupyter --upgrade
 RUN pip3 install jupyter-console --upgrade
@@ -192,6 +198,8 @@ WORKDIR /deepdream/deepdream
 RUN git clone https://github.com/kylemcdonald/gpt-2-poetry.git
 
 RUN git clone https://github.com/kylemcdonald/python-utils.git
+
+RUN git clone https://github.com/bestkao/face_gen.git
 
 WORKDIR /deepdream
 
