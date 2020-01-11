@@ -167,6 +167,16 @@ WORKDIR /deepdream
 ADD start.sh start.sh
 
 ADD GifMaker.ipynb /deepdream/deepdream/GifMaker.ipynb
+ADD Untitled.ipynb /deepdream/deepdream/Untitled.ipynb
+ADD Untitled12.ipynb /deepdream/deepdream/Untitled12.ipynb
+ADD Untitled13.ipynb /deepdream/deepdream/Untitled13.ipynb
+ADD Untitled2.ipynb /deepdream/deepdream/Untitled2.ipynb
+ADD Untitled3.ipynb /deepdream/deepdream/Untitled3.ipynb
+ADD Untitled4.ipynb /deepdream/deepdream/Untitled4.ipynb
+ADD Untitled6.ipynb /deepdream/deepdream/Untitled6.ipynb
+ADD Untitled9.ipynb /deepdream/deepdream/Untitled9.ipynb
+ADD artGen.ipynb /deepdream/deepdream/artGen.ipynb
+
 
 RUN mkdir ~/.jupyter
 
